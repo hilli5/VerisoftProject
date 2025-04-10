@@ -6,13 +6,13 @@ public abstract class Book {
     private String author;
     private double price;
 
-    //constructor
+    //constructor - a way to insert values if there is no setter functions
     public Book(String title, String author, double price) {
         this.title = title;
         this.author = author;
         this.price = price;
     }
-    //getter
+    //getter -
     public String getTitle() {
         return title;
     }
