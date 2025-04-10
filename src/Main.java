@@ -33,13 +33,12 @@ public class Main {
         regularCustomer.buyBook(fictionBook); //buy book number 1
         regularCustomer.buyBook(nonFictionBook); //buy book number 2
         //Price Calculation
-        for (Book book:regularCustomer.getPurchasedBooks())//Calculating the cost of books
-        {
+        for (Book book:regularCustomer.getPurchasedBooks()){//Calculating the cost of books
             System.out.println("The price for Regular for - "+ book.getTitle()+" book: "+book.getPrice());
             price+= book.getPrice();
         }
 
-        System.out.println("The price for all book to"+regularCustomer.getName()+" is: "+ price);
+        System.out.println("The price for all book to "+regularCustomer.getName()+" is: "+ price);
     }
 
 }

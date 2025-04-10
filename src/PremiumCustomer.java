@@ -23,7 +23,7 @@ public class PremiumCustomer implements Customer{
     Check instance of FictionBook or NonFictionBook and create an object,
     Copies the data and recalculates the price and adds it to the list.
     I can also do a setPrice function in Book and edit the price by set and get.
-    Calculate price:  Discount for Premium Customer - Discount result by type = price
+    Calculate price: Original price - ( Discount for Premium Customer + Discount result by type ) = price
     */
     @Override
     public void buyBook(Book book) {
