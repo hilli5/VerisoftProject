@@ -5,15 +5,15 @@ public class PremiumCustomer implements Customer{
 
     //Attribute
     private  String membershipId;
-
     //add listBook Attribute for the books that the customer will buy
     private  List<Book> purchasedBooks;
 
-    //constructor - a way to insert values
+    //constructor -
     public PremiumCustomer(String membershipId) {
         this.membershipId = membershipId;
         purchasedBooks=new ArrayList<>();
     }
+
     @Override
     public String getName() {
         return this.membershipId;
@@ -21,19 +21,22 @@ public class PremiumCustomer implements Customer{
 
     /*
     Check instance of FictionBook or NonFictionBook and create an object,
-    Copies the data and recalculates the price and adds it to the list.
-    I can also do a setPrice function in Book and edit the price by set and get.
+    Copies the data and recalculates the price and adds it to the list else only add the book.
     Calculate price: Original price - ( Discount for Premium Customer + Discount result by type ) = price
     */
     @Override
     public void buyBook(Book book) {
         Book b;
-      if (book instanceof FictionBook)
-          b=new FictionBook(book.getTitle(),book.getAuthor(),book.getPrice()-(book.getPrice()*0.05+book.calculateDiscount()));
-      else
-          b=new NonFictionBook(book.getTitle(),book.getAuthor(),book.getPrice()-(book.getPrice()*0.05+book.calculateDiscount()));
-        //add to list
-        purchasedBooks.add(b);
+        if (book instanceof FictionBook){
+            b=new FictionBook(book.getTitle(),book.getAuthor(),book.getPrice()-(book.calculateDiscount()+book.getPrice()*0.05));
+            purchasedBooks.add(b);
+        }
+        else if (book instanceof NonFictionBook){
+            b=new NonFictionBook(book.getTitle(),book.getAuthor(),book.getPrice()-(book.calculateDiscount()+book.getPrice()*0.05));
+            purchasedBooks.add(b);
+        }
+        else
+            purchasedBooks.add(book);
     }
 
     @Override

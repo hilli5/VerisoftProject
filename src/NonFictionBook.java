@@ -9,7 +9,6 @@ public class NonFictionBook extends Book {
         super(title, author, price);
         this.subject=subject;
     }
-    //constructor - Constructor with some parameters
     public NonFictionBook(String title, String author, double price) {
         super(title, author, price);
     }

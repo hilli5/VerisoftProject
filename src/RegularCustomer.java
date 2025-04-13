@@ -21,21 +21,26 @@ public class RegularCustomer  implements Customer{
     }
 
     /*
-   Check instance of FictionBook or NonFictionBook and create an object,
-   Copies the data and recalculates the price and adds it to the list.
-   I can also do a setPrice function in Book and edit the price by set and get.
-   Calculate price:  Original price - Discount result by type = price
-   */
+    Check instance of FictionBook or NonFictionBook and create an object,
+    Copies the data and recalculates the price and adds it to the list.
+    Calculate price: Original price - (  Discount result by type ) = price
+    */
     @Override
     public void buyBook(Book book) {
         Book b;
-        if (book instanceof FictionBook)
+        if (book instanceof FictionBook){
             b=new FictionBook(book.getTitle(),book.getAuthor(),book.getPrice()-book.calculateDiscount());
-        else
+            purchasedBooks.add(b);
+        }
+
+        else if (book instanceof NonFictionBook){
             b=new NonFictionBook(book.getTitle(),book.getAuthor(),book.getPrice()-book.calculateDiscount());
-        //add to list
-        purchasedBooks.add(b);
+            purchasedBooks.add(b);
+        }
+        else
+            purchasedBooks.add(book);
     }
+
 
     @Override
     public List<Book> getPurchasedBooks() {

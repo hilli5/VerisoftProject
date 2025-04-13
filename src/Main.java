@@ -6,8 +6,8 @@ public class Main {
         FictionBook fictionBook=new FictionBook("Code","Hila",100,"Automation");
         NonFictionBook nonFictionBook=new NonFictionBook("Non-Code","Ron",150,"toRead");
 
-        System.out.println("Discount amount for 'Code' book: "+fictionBook.calculateDiscount());
-        System.out.println("Discount amount for 'Non-Code' book: "+nonFictionBook.calculateDiscount());
+        System.out.println("Discount amount for 'Code' book by "+ fictionBook.getAuthor()+" is: "+fictionBook.calculateDiscount());
+        System.out.println("Discount amount for 'Non-Code' book by "+ nonFictionBook.getAuthor()+" is:"+nonFictionBook.calculateDiscount());
 
         //CUSTOMERS
         PremiumCustomer premiumCustomer=new PremiumCustomer("12345678");
@@ -33,8 +33,8 @@ public class Main {
         regularCustomer.buyBook(fictionBook); //buy book number 1
         regularCustomer.buyBook(nonFictionBook); //buy book number 2
         //Price Calculation
-        for (Book book:regularCustomer.getPurchasedBooks()){//Calculating the cost of books
-            System.out.println("The price for Regular for - "+ book.getTitle()+" book: "+book.getPrice());
+        for (Book book:regularCustomer.getPurchasedBooks()){    //Calculating the cost of books
+            System.out.println("The price for Regular to - "+ book.getTitle()+" book: "+book.getPrice());
             price+= book.getPrice();
         }
 
